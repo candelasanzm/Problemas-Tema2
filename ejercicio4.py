@@ -69,30 +69,81 @@ for arista in resultado:
 
 print(f"\nCoste total mínimo: {coste_total}€")
 
-
 def test_ordena_aristas():
     aristas = [('Salamanca', 'Zaragoza', 300),       
                ('Salamanca', 'Valencia', 400), 
+               ('Zaragoza', 'Cádiz', 200), 
                ('Zaragoza', 'Oviedo', 100), 
-               ('Oviedo', 'Santiago', 500),  
+               ('Oviedo', 'Santiago', 500), 
+               ('Santiago', 'Cádiz', 400), 
+               ('Santiago', 'Almeria', 200), 
                ('Cádiz', 'Almeria', 900), 
                ('Cádiz', 'Valencia', 700),
+               ('Almeria', 'Valencia', 300),
+               ('Almeria', 'Santander', 300),
                ('Valencia', 'Santander', 200)]
     aristas_ordenadas = [('Zaragoza', 'Oviedo', 100),
+                         ('Zaragoza', 'Cádiz', 200), 
+                         ('Santiago', 'Almeria', 200),
                          ('Valencia', 'Santander', 200),
-                         ('Salamanca', 'Zaragoza', 300),     
+                         ('Salamanca', 'Zaragoza', 300), 
+                         ('Almeria', 'Valencia', 300),
+                         ('Almeria', 'Santander', 300),    
                          ('Salamanca', 'Valencia', 400), 
+                         ('Santiago', 'Cádiz', 400), 
                          ('Oviedo', 'Santiago', 500), 
                          ('Cádiz', 'Valencia', 700),
                          ('Cádiz', 'Almeria', 900)]
     assert ordena_aristas(aristas) == aristas_ordenadas
+    assert ordena_aristas(aristas_ordenadas) == aristas_ordenadas
 
-test_ordena_aristas()
-
-"""def test_find():
+def test_find():
+    aristas = [('Salamanca', 'Zaragoza', 300),       
+               ('Salamanca', 'Valencia', 400), 
+               ('Zaragoza', 'Cádiz', 200), 
+               ('Zaragoza', 'Oviedo', 100), 
+               ('Oviedo', 'Santiago', 500), 
+               ('Santiago', 'Cádiz', 400), 
+               ('Santiago', 'Almeria', 200), 
+               ('Cádiz', 'Almeria', 900), 
+               ('Cádiz', 'Valencia', 700),
+               ('Almeria', 'Valencia', 300),
+               ('Almeria', 'Santander', 300),
+               ('Valencia', 'Santander', 200)]
+    arista_buscada = ('Salamanca', 'Zaragoza', 300)
+    assert find(aristas, 'Salamanca') == arista_buscada
+    assert find(aristas, 'Madrid') == None
 
 def test_union():
+    conjuntos = [{'Salamanca'}, {'Zaragoza'}, {'Oviedo'}]
+    union (conjuntos, ('Salamanca', 'Zaragoza', 300))
+    assert conjuntos == [{'Oviedo'}, {'Salamanca', 'Zaragoza'}]
+    union (conjuntos, ('Zaragoza', 'Oviedo', 100))
+    assert conjuntos == [{'Salamanca', 'Zaragoza', 'Oviedo'}]
 
 def test_is_bucle():
+    conjuntos = [{'Salamanca', 'Zaragoza'}, {'Oviedo'}, {'Santiago'}, {'Cádiz'}, {'Almeria'}, {'Valencia'}, {'Santander'}]
+    assert is_bucle(conjuntos, ('Salamanca', 'Oviedo', 400)) == False
+    assert is_bucle(conjuntos, ('Salamanca', 'Zaragoza', 300))    # si hay bucle, 'Salamanca' y 'Zaragoza' ya están en el mismo conjunto
 
-def test_kruskal():"""
+    # Unir 'Salamanca' y 'Oviedo'
+    union(conjuntos, ('Salamanca', 'Oviedo', 400))
+    assert is_bucle(conjuntos, ('Zaragoza', 'Oviedo', 100))  
+
+def test_kruskal():
+    aristas = [('Salamanca', 'Zaragoza', 300),       
+               ('Salamanca', 'Valencia', 400), 
+               ('Zaragoza', 'Cádiz', 200), 
+               ('Zaragoza', 'Oviedo', 100), 
+               ('Oviedo', 'Santiago', 500), 
+               ('Santiago', 'Cádiz', 400), 
+               ('Santiago', 'Almeria', 200), 
+               ('Cádiz', 'Almeria', 900), 
+               ('Cádiz', 'Valencia', 700),
+               ('Almeria', 'Valencia', 300),
+               ('Almeria', 'Santander', 300),
+               ('Valencia', 'Santander', 200)]
+    ciudades = ['Salamanca', 'Zaragoza', 'Oviedo', 'Santiago', 'Cádiz', 'Almeria', 'Valencia', 'Santander']
+    conjuntos = [{ciudad} for ciudad in ciudades] 
+    solucion = [('Zaragoza', 'Oviedo', 100), ('Zaragoza', 'Cádiz', 200), ('Santiago', 'Almeria', 200), ('Valencia', 'Santander', 200), ('Salamanca', 'Zaragoza', 300), ('Almeria', 'Valencia', 300), ('Salamanca', 'Valencia', 400)]
+    assert kruskal(aristas, conjuntos) == solucion
