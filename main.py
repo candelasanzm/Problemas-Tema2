@@ -1,5 +1,3 @@
-main
-
 # Algoritmia y Complejidad Curso 2024-25
 # Esqueleto de trabajo en Python
 
