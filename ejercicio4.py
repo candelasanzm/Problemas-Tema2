@@ -94,8 +94,10 @@ def test_ordena_aristas():
                          ('Oviedo', 'Santiago', 500), 
                          ('Cádiz', 'Valencia', 700),
                          ('Cádiz', 'Almeria', 900)]
+    caso_prueba = []
     assert ordena_aristas(aristas) == aristas_ordenadas
     assert ordena_aristas(aristas_ordenadas) == aristas_ordenadas
+    assert ordena_aristas(caso_prueba) == []
 
 def test_find():
     aristas = [('Salamanca', 'Zaragoza', 300),       
@@ -120,6 +122,9 @@ def test_union():
     assert conjuntos == [{'Oviedo'}, {'Salamanca', 'Zaragoza'}]
     union (conjuntos, ('Zaragoza', 'Oviedo', 100))
     assert conjuntos == [{'Salamanca', 'Zaragoza', 'Oviedo'}]
+    conjuntos_vacio = []
+    union (conjuntos_vacio, ('Salamanca', 'Madrid', 300))
+    assert conjuntos_vacio == []
 
 def test_is_bucle():
     conjuntos = [{'Salamanca', 'Zaragoza'}, {'Oviedo'}, {'Santiago'}, {'Cádiz'}, {'Almeria'}, {'Valencia'}, {'Santander'}]
