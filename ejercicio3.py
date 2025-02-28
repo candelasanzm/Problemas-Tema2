@@ -22,18 +22,12 @@ def voraz(candidatos: list) -> tuple:
     return min_candidato, max_candidato
 
 v = [3, 4, 1, 7, 5, 9, 10]
-min, max = voraz(v)
-print(f"Mínimo: {min}, Máximo: {max}")
+minimo, maximo = voraz(v)
+print(f"Mínimo: {minimo}, Máximo: {maximo}")
 
 def test_voraz():
     v = [3, 4, 1, 7, 5, 9, 10]
-    min=1
-    max=10
-    assert voraz(v)== (min, max)
+    minimo_v=1
+    maximo_v=10
+    assert voraz(v)== (minimo_v, maximo_v)
 
-def test_benchmark(benchmark):
-    v = [3, 4, 1, 7, 5, 9, 10]
-    min=1
-    max=10
-    res = benchmark(voraz, v)
-    assert res== (min, max)
