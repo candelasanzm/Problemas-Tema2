@@ -26,8 +26,18 @@ minimo, maximo = voraz(v)
 print(f"Mínimo: {minimo}, Máximo: {maximo}")
 
 def test_voraz():
-    v = [3, 4, 1, 7, 5, 9, 10]
-    minimo_v=1
-    maximo_v=10
-    assert voraz(v)== (minimo_v, maximo_v)
+    v1 = [3, 4, 1, 7, 5, 9, 10]
+    minimo_v1=1
+    maximo_v1=10
+    assert voraz(v1)== (minimo_v1, maximo_v1)
+
+    v2=[]
+    minimo_v2 = None
+    maximo_v2= None
+    assert voraz(v2)== (minimo_v2, maximo_v2)
+
+    v3 = [2]
+    minimo_v3=2
+    maximo_v3=2
+    assert voraz(v3)== (minimo_v3, maximo_v3)
 
