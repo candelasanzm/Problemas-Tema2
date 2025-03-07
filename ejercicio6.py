@@ -35,11 +35,20 @@ def num_min_pistas(reservas : list[tuple[int, int]]) -> int:
 
     return len(pistas)
 
+# Casos de Prueba
+res1 = [(10, 12), (9, 11), (11, 13)]
+print(ordena_reservas(res1))
+print(num_min_pistas(res1))
 
-res = [(10, 12), (9, 11), (11, 13)]
-print(ordena_reservas(res))
-print(num_min_pistas(res))
+res2 = [(10, 12)]
+print(ordena_reservas(res2))
+print(num_min_pistas(res2))
 
+res3 = []
+print(ordena_reservas(res3))
+print(num_min_pistas(res3))
+
+# Test
 def test_ordenar_reservas():
     reservas_desordenadas = [(10, 12), (9, 11), (11, 13)]
     reservas_ordenadas = [(9, 11), (10, 12), (11, 13)]

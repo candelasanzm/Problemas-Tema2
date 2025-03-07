@@ -69,6 +69,7 @@ for arista in resultado:
 
 print(f"\nCoste total mínimo: {coste_total}€")
 
+# Test 
 def test_ordena_aristas():
     aristas = [('Salamanca', 'Zaragoza', 300),       
                ('Salamanca', 'Valencia', 400), 

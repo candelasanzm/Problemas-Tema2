@@ -21,10 +21,20 @@ def voraz(candidatos: list) -> tuple:
 
     return min_candidato, max_candidato
 
-v = [3, 4, 1, 7, 5, 9, 10]
-minimo, maximo = voraz(v)
-print(f"Mínimo: {minimo}, Máximo: {maximo}")
+# Casos de Prueba
+v1 = [3, 4, 1, 7, 5, 9, 10]
+minimo1, maximo1 = voraz(v1)
+print(f"Mínimo: {minimo1}, Máximo: {maximo1}")
 
+v2 = []
+minimo2, maximo2 = voraz(v2)
+print(f"Mínimo: {minimo2}, Máximo: {maximo2}")
+
+v3 = [3]
+minimo3, maximo3 = voraz(v3)
+print(f"Mínimo: {minimo3}, Máximo: {maximo3}")
+
+# Test
 def test_voraz():
     v1 = [3, 4, 1, 7, 5, 9, 10]
     minimo_v1=1
