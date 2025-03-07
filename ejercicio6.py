@@ -29,8 +29,8 @@ def num_min_pistas(reservas : list[tuple[int, int]]) -> int:
         pista_asignada = i < len(pistas) # verificar si se encontró una pista libre
         if pista_asignada :
             pistas[i] = fin # actualizar la hora de finalizacion de la pista que queda libre con la nueva reserva    
-
-        if pista_asignada == False:
+    
+        elif pista_asignada == False:
             pistas.append(fin) # crear nueva pista
 
     return len(pistas)
